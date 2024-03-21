@@ -31,8 +31,33 @@ let ourTeam = [
     }
 ];
 
-const boxElement = document.querySelector('.box-flex');
+let btn = document.getElementById('send');
+btn.addEventListener('click', function(){
+    let userNameSurname = document.getElementById('nameSurname').value;
+    let userRole = document.getElementById('roleWork').value;
+    let userPhoto = document.getElementById('nomeFoto').value;
 
+    let newUser = {
+        'nameSurname': `${userNameSurname}`,
+        'role': `${userRole}`,
+        'img': `${userPhoto}`
+    }
+    ourTeam.push(newUser);
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('card', 'ms-4', 'mt-4','mb-4');
+    cardElement.innerHTML = `
+        <img class="img-fluid" src="img/${newUser.img}">
+        <div class="card-body">
+            <p class="card-text text-center ">
+                <span class="name">${newUser.nameSurname}</span><br>
+                <span>${newUser.role}</span>
+            </p>
+        </div>
+    `
+    boxElement.appendChild(cardElement);
+})
+
+const boxElement = document.querySelector('.box-flex');
 for(let i = 0; i < ourTeam.length; i++){
     const cardElement = document.createElement('div');
     cardElement.classList.add('card', 'ms-4', 'mt-4','mb-4');
