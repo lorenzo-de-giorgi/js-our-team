@@ -1,0 +1,9 @@
+.box-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name{
+    font-weight: 700;
+    font-size: 20px;
+}

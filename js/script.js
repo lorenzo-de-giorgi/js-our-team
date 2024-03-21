@@ -31,13 +31,19 @@ let ourTeam = [
     }
 ];
 
-const ulElement  = document.querySelector('ul');
+const boxElement = document.querySelector('.box-flex');
 
 for(let i = 0; i < ourTeam.length; i++){
-    const liElement = document.createElement('li');
-    liElement.innerHTML = `
-    Nome: ${ourTeam[i].nameSurname} Ruolo: ${ourTeam[i].role}
-    <img src="img/${ourTeam[i].img}">
-    `;
-    ulElement.appendChild(liElement);
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('card', 'ms-4', 'mt-4','mb-4');
+    cardElement.innerHTML = `
+    <img class="img-fluid" src="img/${ourTeam[i].img}">
+    <div class="card-body">
+        <p class="card-text text-center ">
+            <span class="name">${ourTeam[i].nameSurname}</span><br>
+            <span>${ourTeam[i].role}</span>
+        </p>
+    </div>
+    `
+    boxElement.appendChild(cardElement);
 }
